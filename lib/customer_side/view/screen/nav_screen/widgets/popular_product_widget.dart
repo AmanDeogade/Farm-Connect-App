@@ -33,7 +33,7 @@ class _PopularProductWidgetState extends ConsumerState<PopularProductWidget> {
       final products = await productController.loadPopularProducts();
       ref.read(productProvider.notifier).setProducts(products);
     } catch (e) {
-      print("$e");
+      //"$e");
     } finally {
       setState(() {
         isLoading = false;

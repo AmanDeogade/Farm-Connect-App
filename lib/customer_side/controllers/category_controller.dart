@@ -21,7 +21,7 @@ class CategoryController {
         throw Exception('Failed to load categories');
       }
     } catch (e) {
-      print(e);
+      //e);
       throw Exception('error loading categories');
     }
   }

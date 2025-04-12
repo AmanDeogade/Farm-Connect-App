@@ -20,7 +20,7 @@ class UserProvider extends StateNotifier<User?> {
 
   void setUser(String userJson) {
     if (userJson.isEmpty) {
-      print("Error: userJson is empty");
+      //"Error: userJson is empty");
       return;
     }
     state = User.fromJson(userJson);

@@ -47,8 +47,8 @@ class FarmerProductController {
           popular: true,
           recommend: false,
         );
-        print(product.farmerId);
-        print(product.fullName);
+        //product.farmerId);
+        //product.fullName);
         //showSnackBar(context, product.toJson().toString());
         http.Response response = await http.post(
           Uri.parse('$uri/api/add-product'),
@@ -57,7 +57,7 @@ class FarmerProductController {
             'Content-Type': 'application/json; charset=UTF-8',
           },
         );
-        print(response.body);
+        //response.body);
 
         // showSnackBar(context, response.body);
 
@@ -85,7 +85,7 @@ class FarmerProductController {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
-      print("Body ${response.body}");
+      //"Body ${response.body}");
 
       if (response.statusCode == 200) {
         // Decode the response as a Map
@@ -107,7 +107,7 @@ class FarmerProductController {
         throw Exception('Failed to load products');
       }
     } catch (e) {
-      print(e);
+      //e);
       throw Exception('Error loading products: $e');
     }
   }

@@ -23,7 +23,7 @@ class _SubcategoryProductScreenState
   void initState() {
     super.initState();
     final products = ref.read(subcategoryProvider);
-    print(products.length);
+    //products.length);
     if (!products.isEmpty) {
       _fetchProduct();
     } else {
@@ -36,15 +36,15 @@ class _SubcategoryProductScreenState
   Future<void> _fetchProduct() async {
     final ProductController productController = ProductController();
     try {
-      print(widget.subcategory.subCategoryName);
+      //widget.subcategory.subCategoryName);
       final products = await productController.loadProductsBySubcategory(
         widget.subcategory.subCategoryName,
       );
-      print("Aman3");
-      print("Product are ${products}");
+      //"Aman3");
+      //"Product are ${products}");
       ref.read(subcategoryProductProvider.notifier).setProducts(products);
     } catch (e) {
-      print("$e");
+      //"$e");
     } finally {
       setState(() {
         isLoading = false;

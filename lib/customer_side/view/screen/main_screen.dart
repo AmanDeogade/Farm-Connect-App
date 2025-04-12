@@ -1,7 +1,6 @@
 import 'package:farmconnect/customer_side/view/screen/nav_screen/account_screen.dart';
 import 'package:farmconnect/customer_side/view/screen/nav_screen/cart_screen.dart';
 import 'package:farmconnect/customer_side/view/screen/nav_screen/home_screen.dart';
-import 'package:farmconnect/customer_side/view/screen/nav_screen/stores_screen.dart';
 import 'package:farmconnect/customer_side/view/screen/nav_screen/category_screen.dart';
 import 'package:flutter/material.dart';
 

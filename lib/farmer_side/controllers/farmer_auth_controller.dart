@@ -41,14 +41,14 @@ class FarmerAuthController {
         role: '',
       );
 
-      print(fullName);
-      print(email);
-      print(password);
+      //fullName);
+      //email);
+      //password);
 
       String farmerJson = farmer.toJson();
-      print(
-        'Sending sign-up request with the following data: $farmerJson',
-      ); // Debugging the request
+      //
+      // 'Sending sign-up request with the following data: $farmerJson',
+      //); // Debugging the request
 
       // Send the sign-up request
       http.Response response = await http.post(
@@ -57,10 +57,10 @@ class FarmerAuthController {
         headers: {'Content-Type': 'application/json; charset=UTF-8'},
       );
 
-      print(
-        'Response Status Code: ${response.statusCode}',
-      ); // Debugging response status
-      print('Response Body: ${response.body}'); // Debugging response body
+      //
+      //'Response Status Code: ${response.statusCode}',
+      //); // Debugging response status
+      //'Response Body: ${response.body}'); // Debugging response body
 
       if (response.statusCode == 200) {
         // Check if the response is successful
@@ -78,11 +78,11 @@ class FarmerAuthController {
         );
       } else if (response.statusCode == 400) {
         // If the response status code is not 200 (OK), log the error message.
-        print('Vendor with this email already exists: ${response.body}');
+        //'Vendor with this email already exists: ${response.body}');
         showSnackBar(context, 'Farmer with this email already exists');
       } else {
         // If the response status code is not 200 (OK), log the error message.
-        print('Failed to create farmer account. Response: ${response.body}');
+        //'Failed to create farmer account. Response: ${response.body}');
         showSnackBar(
           context,
           'Failed to create Farmer account. Please try again.',
@@ -90,7 +90,7 @@ class FarmerAuthController {
       }
     } catch (e) {
       // Catch any unexpected errors (network issues, JSON issues, etc.)
-      print('Error during sign up: $e');
+      //'Error during sign up: $e');
       showSnackBar(context, 'Error during sign up: $e');
     }
   }
@@ -100,8 +100,8 @@ class FarmerAuthController {
     required String password,
     required context,
   }) async {
-    print(email);
-    print(password);
+    //email);
+    //password);
     try {
       http.Response response = await http.post(
         Uri.parse("$uri/api/farmer/signin"),
@@ -111,7 +111,7 @@ class FarmerAuthController {
         }), // Encode JSON correctly
         headers: {"Content-Type": 'application/json; charset=UTF-8'},
       );
-      print(response.body);
+      //response.body);
 
       manageHttpResponse(
         response: response,
@@ -141,7 +141,7 @@ class FarmerAuthController {
         },
       );
     } catch (e) {
-      print(e);
+      //e);
       showSnackBar(context, 'Error: $e');
     }
   }
@@ -167,7 +167,7 @@ class FarmerAuthController {
       ); //navigate to login screen
       showSnackBar(context, 'Signout Successfully');
     } catch (e) {
-      print("Error : $e");
+      //"Error : $e");
     }
   }
 

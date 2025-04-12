@@ -18,7 +18,7 @@ class TwoFarmerDisplayOrderScreen extends ConsumerStatefulWidget {
 class _OrderScreenState extends ConsumerState<TwoFarmerDisplayOrderScreen> {
   @override
   void initState() {
-    print("Click");
+    //"Click");
     super.initState();
     _fetchOrders();
   }
@@ -26,11 +26,11 @@ class _OrderScreenState extends ConsumerState<TwoFarmerDisplayOrderScreen> {
   Future<void> _fetchOrders() async {
     final farmerUser = ref.read(farmerUserProvider);
     //final user = ref.watch(userProvider);
-    print("User: $farmerUser"); // Check if the user is fetched correctly
-    print("User ID: ${farmerUser?.id}");
+    //"User: $farmerUser"); // Check if the user is fetched correctly
+    //"User ID: ${farmerUser?.id}");
 
     if (farmerUser == null) {
-      print("User not available yet. Waiting...");
+      //"User not available yet. Waiting...");
       return; // Exit early if user is null
     }
 
@@ -38,16 +38,16 @@ class _OrderScreenState extends ConsumerState<TwoFarmerDisplayOrderScreen> {
       final FarmerOrderController farmerOrderController =
           FarmerOrderController();
       try {
-        print("Fetching orders");
+        //"Fetching orders");
         final orders = await farmerOrderController.loadFarmerOrders(
           farmerId: farmerUser.id,
         );
-        print(
-          "Orders fetched: $orders",
-        ); // Ensure the orders are being fetched correctly
+        //
+        //"Orders fetched: $orders",
+        //); // Ensure the orders are being fetched correctly
         ref.read(farmerOrderProvider.notifier).setFarmerOrders(orders);
       } catch (e) {
-        print('Error fetching orders: $e');
+        //'Error fetching orders: $e');
       }
     }
   }
@@ -58,7 +58,7 @@ class _OrderScreenState extends ConsumerState<TwoFarmerDisplayOrderScreen> {
       await farmerOrderController.deleteOrder(id: orderId, context: context);
       _fetchOrders(); //Refresh the list after deletion
     } catch (e) {
-      print("error deleting orer : $e");
+      //"error deleting orer : $e");
     }
   }
 

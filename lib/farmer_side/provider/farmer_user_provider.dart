@@ -1,4 +1,3 @@
-import 'package:farmconnect/customer_side/models/farmer.dart';
 import 'package:farmconnect/farmer_side/models/farmer_user.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

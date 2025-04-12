@@ -31,7 +31,7 @@ class _SearchProductScreenState extends State<SearchProductScreen> {
         });
       }
     } catch (e) {
-      print(e);
+      //e);
     } finally {
       setState(() {
         _isLoading = false;

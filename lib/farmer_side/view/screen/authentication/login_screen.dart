@@ -1,9 +1,7 @@
 //import 'package:farmerside/controllers/auth_controller.dart';
 //import 'package:farmerside/views/screens/authentication_screen/registration_screen.dart';
 import 'package:farmconnect/farmer_side/controllers/farmer_auth_controller.dart';
-import 'package:farmconnect/farmer_side/main_farmer_screen.dart';
 import 'package:farmconnect/farmer_side/view/screen/authentication/registration_screen.dart';
-import 'package:farmconnect/farmer_side/view/screen/upload_lap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';

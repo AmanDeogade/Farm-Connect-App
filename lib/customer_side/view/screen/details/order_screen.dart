@@ -17,7 +17,7 @@ class OrderScreen extends ConsumerStatefulWidget {
 class _OrderScreenState extends ConsumerState<OrderScreen> {
   @override
   void initState() {
-    print("Click");
+    //"Click");
     super.initState();
     _fetchOrders();
     ;
@@ -26,25 +26,25 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
   Future<void> _fetchOrders() async {
     final user = ref.read(userProvider);
     //final user = ref.watch(userProvider);
-    print("User: $user"); // Check if the user is fetched correctly
-    print("User ID: ${user?.id}");
+    //"User: $user"); // Check if the user is fetched correctly
+    //"User ID: ${user?.id}");
 
     if (user == null) {
-      print("User not available yet. Waiting...");
+      //"User not available yet. Waiting...");
       return; // Exit early if user is null
     }
 
     if (user != null) {
       final OrderController orderController = OrderController();
       try {
-        print("Fetching orders");
+        //"Fetching orders");
         final orders = await orderController.loadOrders(buyerId: user.id);
-        print(
-          "Orders fetched: $orders",
-        ); // Ensure the orders are being fetched correctly
+        //
+        //"Orders fetched: $orders",
+        //); // Ensure the orders are being fetched correctly
         ref.read(orderProvider.notifier).setOrders(orders);
       } catch (e) {
-        print('Error fetching orders: $e');
+        //'Error fetching orders: $e');
       }
     }
   }
@@ -55,7 +55,7 @@ class _OrderScreenState extends ConsumerState<OrderScreen> {
       await orderController.deleteOrder(id: orderId, context: context);
       _fetchOrders(); //Refresh the list after deletion
     } catch (e) {
-      print("error deleting orer : $e");
+      //"error deleting orer : $e");
     }
   }
 

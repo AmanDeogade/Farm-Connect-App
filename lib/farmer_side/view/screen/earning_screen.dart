@@ -17,10 +17,8 @@ class EarningScreen extends ConsumerStatefulWidget {
 class _EarningScreenState extends ConsumerState<EarningScreen> {
   @override
   void initState() {
-    print("Click");
     super.initState();
     _fetchOrders();
-    ;
   }
 
   Future<void> _fetchOrders() async {
@@ -34,27 +32,30 @@ class _EarningScreenState extends ConsumerState<EarningScreen> {
       final FarmerOrderController farmerOrderController =
           FarmerOrderController();
       try {
-        print("Fetching orders");
         final farmerOrders = await farmerOrderController.loadFarmerOrders(
           farmerId: farmerUser.id,
         );
-        print(
-          "Orders fetched: $farmerOrders",
-        ); // Ensure the orders are being fetched correctly
         ref.read(farmerOrderProvider.notifier).setFarmerOrders(farmerOrders);
         ref.read(totalEarningProvider.notifier).calculateEarning(farmerOrders);
         ref.read(totalProductCount.notifier).countProduct(farmerOrders);
       } catch (e) {
-        print('Error fetching orders: $e');
+        //'Error fetching orders: $e');
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    _fetchOrders;
+    var firstchar = "F";
+    var fullName = "Farmer";
     final vendor = ref.watch(farmerUserProvider);
     final totalEarning = ref.watch(totalEarningProvider);
     final totalProduct = ref.watch(totalProductCount);
+    if (vendor != null) {
+      firstchar = vendor.fullName[0];
+      fullName = vendor.fullName;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -62,7 +63,8 @@ class _EarningScreenState extends ConsumerState<EarningScreen> {
             CircleAvatar(
               backgroundColor: Colors.purple,
               child: Text(
-                vendor!.fullName[0].toUpperCase(),
+                firstchar,
+                //vendor!.fullName[0].toUpperCase(),
                 style: GoogleFonts.montserrat(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -73,8 +75,8 @@ class _EarningScreenState extends ConsumerState<EarningScreen> {
             SizedBox(
               width: 250, //for lengthy name
               child: Text(
-                "Welcome Farmer",
-                // "Welcome! ${vendor.fullName}",
+                //"Welcome! ${fullName}",
+                "Welcome! ${fullName}",
                 style: GoogleFonts.montserrat(fontWeight: FontWeight.bold),
               ),
             ),
@@ -95,14 +97,17 @@ class _EarningScreenState extends ConsumerState<EarningScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                "Rs. ${totalEarning.toStringAsFixed(2)}",
-                style: GoogleFonts.montserrat(
-                  fontSize: 36,
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              totalEarning == null
+                  ? CircularProgressIndicator(color: Colors.green)
+                  : Text(
+                    "Rs. ${totalEarning.toStringAsFixed(2)}",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 36,
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
               Text(
                 "Total Orders Delivered",
                 style: GoogleFonts.montserrat(
@@ -111,14 +116,16 @@ class _EarningScreenState extends ConsumerState<EarningScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                "${totalProduct.toString()}",
-                style: GoogleFonts.montserrat(
-                  fontSize: 36,
-                  color: Colors.green,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              totalProduct == null
+                  ? CircularProgressIndicator(color: Colors.green)
+                  : Text(
+                    "$totalProduct",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 36,
+                      color: Colors.green,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
             ],
           ),
         ),

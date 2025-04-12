@@ -1,6 +1,5 @@
 import 'package:farmconnect/farmer_side/controllers/farmer_auth_controller.dart';
 import 'package:farmconnect/farmer_side/main_farmer_screen.dart';
-import 'package:farmconnect/farmer_side/view/screen/upload_lap.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -385,11 +384,11 @@ class _FarmerRegistrationScreenState extends State<FarmerRegistrationScreen> {
                     onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         registerUser();
-                        print(email);
-                        print(fullName);
-                        print(password);
+                        //email);
+                        //fullName);
+                        //password);
                       } else {
-                        print('failed');
+                        //'failed');
                       }
                     },
                     child: Container(

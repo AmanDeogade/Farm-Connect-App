@@ -14,7 +14,7 @@ class FarmerOrderController {
       // SharedPreferences preferences = await SharedPreferences.getInstance();
       // String? token = preferences.getString("auth_token");
       //Send an HTTP GET request to get the orders by the buyerID
-      print("Hello");
+      //"Hello");
       http.Response response = await http.get(
         Uri.parse('$uri/api/orders/farmer/$farmerId'),
         headers: <String, String>{
@@ -22,19 +22,19 @@ class FarmerOrderController {
           // 'x-auth-token': token!,
         },
       );
-      // print(response.body);
+      // //response.body);
       //Check if the response status code is 200(OK).
       if (response.statusCode == 200) {
         //Parse the Json response body into dynamic List
         //THIS convert the json data into a formate that can be further processed in Dart.
         List<dynamic> data = jsonDecode(response.body);
-        print(data);
+        //data);
         //Map the dynamic list to list of Orders object using the fromjson factory method
         //this step coverts the raw data into list of the orders  instances , which are easier to work with
         List<Order> orders =
             data.map((order) => Order.fromJson(order)).toList();
-        print("Orders: $orders");
-        print(orders);
+        //"Orders: $orders");
+        //orders);
 
         return orders;
       } else if (response.statusCode == 404) {

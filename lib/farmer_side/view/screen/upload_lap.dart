@@ -70,23 +70,8 @@ class _UploadScreenState extends ConsumerState<UploadScreenLap> {
         );
         return;
       }
-
-      // Process the data (e.g., upload)
       final farmerName = ref.read(farmerUserProvider)!.fullName;
       final farmerId = ref.read(farmerUserProvider)!.id;
-      // print(
-      //   nameController.text +
-      //       quantityController.text +
-      //       descriptionController.text +
-      //       farmerName +
-      //       farmerId +
-      //       priceController.text +
-      //       quantityController.text +
-      //       descriptionController.text +
-      //       selectedCategory!.name +
-      //       quantityUnit.text,
-      // );
-
       setState(() {
         isLoading = true;
       });

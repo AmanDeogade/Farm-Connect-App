@@ -148,8 +148,8 @@ class _ShippingAddressScreenState
           onTap: () async {
             if (_formKey.currentState!.validate()) {
               _showLoadingDialog();
-              print('Valid');
-              print(_stateController.text);
+              //'Valid');
+              //_stateController.text);
 
               await _authController
                   .updateFarmerLocation(
@@ -174,7 +174,7 @@ class _ShippingAddressScreenState
                     ); // this will close the shipping screen meaning it will take us back to the formal which is the checkout
                   });
             } else {
-              print('Not valid');
+              //'Not valid');
             }
           },
           child: Container(

@@ -486,7 +486,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                       //pay with stripe to place the o rder
                       //handleStripePayment(context);
                     } else {
-                      print('mee');
+                      //'mee');
                       await Future.forEach(_cartProvider.getCartItems.entries, (
                         entry,
                       ) {

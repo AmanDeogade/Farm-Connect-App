@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:farmconnect/Customer_Side/view/screen/authentication_screen/login_screen.dart';
+import 'package:farmconnect/customer_side/view/screen/authentication_screen/login_screen.dart';
 import 'package:farmconnect/customer_side/models/user.dart';
 import 'package:farmconnect/customer_side/provider/delivery_order_count_provider.dart';
 import 'package:farmconnect/customer_side/provider/user_provider.dart';
@@ -51,7 +51,7 @@ class AuthController {
         },
       );
     } catch (e) {
-      print("Error : $e");
+      //"Error : $e");
     }
   }
 
@@ -94,11 +94,10 @@ class AuthController {
         },
       );
     } catch (e) {
-      print("Error : $e");
+      //"Error : $e");
     }
   }
 
-  ///SignOut
   Future<void> signOut({
     required BuildContext context,
     required WidgetRef ref,
@@ -117,7 +116,7 @@ class AuthController {
       );
       showSnackBar(context, 'Signout Successfully');
     } catch (e) {
-      print("Error : $e");
+      //"Error : $e");
     }
   }
 

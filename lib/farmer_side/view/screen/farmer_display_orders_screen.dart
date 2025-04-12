@@ -1,5 +1,4 @@
 import 'package:farmconnect/customer_side/models/order.dart';
-import 'package:farmconnect/customer_side/view/screen/details/order_detail_screen.dart';
 import 'package:farmconnect/farmer_side/controllers/farmer_order_controller.dart';
 import 'package:farmconnect/farmer_side/provider/farmer_order_provider.dart';
 import 'package:farmconnect/farmer_side/provider/farmer_user_provider.dart';
@@ -18,7 +17,7 @@ class FarmerDisplayOrderScreen extends ConsumerStatefulWidget {
 class _OrderScreenState extends ConsumerState<FarmerDisplayOrderScreen> {
   @override
   void initState() {
-    print("Click");
+    //"Click");
     super.initState();
     _fetchOrders();
   }
@@ -26,11 +25,11 @@ class _OrderScreenState extends ConsumerState<FarmerDisplayOrderScreen> {
   Future<void> _fetchOrders() async {
     final farmerUser = ref.read(farmerUserProvider);
     //final user = ref.watch(userProvider);
-    print("User: $farmerUser"); // Check if the user is fetched correctly
-    print("User ID: ${farmerUser?.id}");
+    //"User: $farmerUser"); // Check if the user is fetched correctly
+    //"User ID: ${farmerUser?.id}");
 
     if (farmerUser == null) {
-      print("User not available yet. Waiting...");
+      //"User not available yet. Waiting...");
       return; // Exit early if user is null
     }
 
@@ -38,16 +37,16 @@ class _OrderScreenState extends ConsumerState<FarmerDisplayOrderScreen> {
       final FarmerOrderController farmerOrderController =
           FarmerOrderController();
       try {
-        print("Fetching orders");
+        //"Fetching orders");
         final orders = await farmerOrderController.loadFarmerOrders(
           farmerId: farmerUser.id,
         );
-        print(
-          "Orders fetched: $orders",
-        ); // Ensure the orders are being fetched correctly
+        //
+        //  "Orders fetched: $orders",
+        //); // Ensure the orders are being fetched correctly
         ref.read(farmerOrderProvider.notifier).setFarmerOrders(orders);
       } catch (e) {
-        print('Error fetching orders: $e');
+        //'Error fetching orders: $e');
       }
     }
   }
@@ -58,7 +57,7 @@ class _OrderScreenState extends ConsumerState<FarmerDisplayOrderScreen> {
       await farmerOrderController.deleteOrder(id: orderId, context: context);
       _fetchOrders(); //Refresh the list after deletion
     } catch (e) {
-      print("error deleting orer : $e");
+      //"error deleting orer : $e");
     }
   }
 

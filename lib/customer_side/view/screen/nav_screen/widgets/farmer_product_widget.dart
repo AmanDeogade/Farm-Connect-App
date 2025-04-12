@@ -34,7 +34,7 @@ class _FarmerProductWidgetState extends State<FarmerProductWidget> {
         isLoading = false;
       });
     } catch (e) {
-      print("Error fetching products: $e");
+      //"Error fetching products: $e");
       setState(() {
         isLoading = false;
       });

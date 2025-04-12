@@ -1,6 +1,5 @@
 import 'package:farmconnect/farmer_side/controllers/farmer_auth_controller.dart';
 import 'package:farmconnect/farmer_side/provider/farmer_user_provider.dart';
-import 'package:farmconnect/farmer_side/view/screen/farmer_display_orders_screen.dart';
 import 'package:farmconnect/farmer_side/view/screen/nav_screen/farmer_shipping.dart';
 import 'package:farmconnect/farmer_side/view/screen/two_farmer_display_order.dart';
 import 'package:flutter/material.dart';
@@ -139,7 +138,7 @@ class _AccountScreenState extends ConsumerState<FarmerAccountScreen> {
                   Align(
                     alignment: const Alignment(0, 0.09),
                     child:
-                        user!.fullName != ""
+                        user != null
                             ? Text(
                               user.fullName,
                               style: GoogleFonts.montserrat(
@@ -171,7 +170,7 @@ class _AccountScreenState extends ConsumerState<FarmerAccountScreen> {
                         );
                       },
                       child:
-                          user.state != ""
+                          user != null
                               ? Text(
                                 user.state,
                                 style: GoogleFonts.montserrat(

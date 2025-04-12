@@ -1,11 +1,9 @@
-import 'package:farmconnect/Customer_Side/view/screen/authentication_screen/login_screen.dart';
+import 'package:farmconnect/customer_side/view/screen/authentication_screen/login_screen.dart';
 import 'package:farmconnect/farmer_side/main_farmer_screen.dart';
 import 'package:farmconnect/farmer_side/provider/farmer_user_provider.dart';
 import 'package:farmconnect/farmer_side/view/screen/authentication/login_screen.dart';
-import 'package:farmconnect/farmer_side/view/screen/upload_lap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:farmconnect/Customer_Side/view/screen/authentication_screen/registration_screen.dart';
 import 'package:farmconnect/customer_side/provider/user_provider.dart';
 import 'package:farmconnect/customer_side/view/screen/main_screen.dart';
 import 'package:flutter/services.dart';
@@ -108,15 +106,15 @@ class MyApp extends ConsumerWidget {
     String? farmerJson = preferences.getString('farmer');
 
     // Debug logs to check stored values
-    print("Stored Token: $token");
-    print("Stored User JSON: $userJson");
-    print("Stored Farmer JSON: $farmerJson");
+    //"Stored Token: $token");
+    //"Stored User JSON: $userJson");
+    //"Stored Farmer JSON: $farmerJson");
 
     if (userJson != null) {
       try {
         ref.read(userProvider.notifier).setUser(userJson);
       } catch (e) {
-        print("Error setting user from JSON: $e");
+        //"Error setting user from JSON: $e");
       }
     } else {
       ref.read(userProvider.notifier).signOut();
@@ -125,7 +123,7 @@ class MyApp extends ConsumerWidget {
       try {
         ref.read(farmerUserProvider.notifier).setFarmer(farmerJson);
       } catch (e) {
-        print("Error setting user from JSON: $e");
+        //"Error setting user from JSON: $e");
       }
     } else {
       ref.read(farmerUserProvider.notifier).signOut();
@@ -162,7 +160,7 @@ class MyApp extends ConsumerWidget {
               final user = ref.watch(userProvider);
               final farmerUser = ref.watch(farmerUserProvider);
 
-              print("Farmer Login Hai ${farmerUser}");
+              //"Farmer Login Hai ${farmerUser}");
 
               // return FarmerLoginScreen();
               if (user != null) {

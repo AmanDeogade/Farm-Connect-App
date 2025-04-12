@@ -32,7 +32,7 @@ class _PopularProductWidgetState extends ConsumerState<FarmerNearBy> {
       final farmers = await farmercontroller.loadFarmer();
       ref.read(farmerDetailsProvider.notifier).setFarmers(farmers);
     } catch (e) {
-      print("$e");
+      //"$e");
     } finally {
       setState(() {
         isLoading = false;
